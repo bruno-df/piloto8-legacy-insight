@@ -1,8 +1,10 @@
 import csv
 from io import StringIO
 
+from .triagem import classificar
+
 def processar_csv(texto):
-    # Legado: parsing, validação, classificação e resumo no mesmo módulo.
+    # Legado: parsing, validação e resumo no mesmo módulo; a classificação é de src.triagem.
     reader = csv.DictReader(StringIO(texto))
     if reader.fieldnames != ["protocolo", "dias", "documentos"]:
         raise ValueError("cabecalho invalido")
@@ -22,15 +24,10 @@ def processar_csv(texto):
         doc = linha["documentos"].strip().lower()
         if doc not in ("sim", "nao"):
             raise ValueError("documentos invalidos")
-        # Regra duplicada de src.triagem.classificar.
-        if doc == "nao":
-            situacao = "PENDENTE"
-        elif dias > 30:
-            situacao = "ATRASADA"
-        else:
-            situacao = "NO_PRAZO"
+        documentos = doc == "sim"
+        situacao = classificar(dias, documentos)
         itens.append({"protocolo": protocolo, "dias": dias,
-                      "documentos": doc == "sim", "situacao": situacao})
+                      "documentos": documentos, "situacao": situacao})
     contagem = {"PENDENTE": 0, "NO_PRAZO": 0, "ATRASADA": 0}
     for item in itens:
         contagem[item["situacao"]] += 1
