@@ -1,0 +1,32 @@
+# Teste de mutacao (regras quebradas de proposito em copias temporarias)
+Script: evidencias/scripts/mutacao.sh  |  O projeto nao foi alterado.
+
+Data (UTC): 2026-11-06T15:40:15Z
+Python 3.14.0
+== Controle: codigo original, sem mutacao, suite completa (13 testes)
+Ran 13 tests in 0.001s
+OK
+EXIT_CODE=0
+
+== Mutante 1: limite trocado de 'dias > 30' para 'dias >= 30' (viola RN-01)
+28:        elif dias >= 30:
+-- suite completa:
+FAIL: test_classificacao_lote_fronteiras (test_servico.RegressaoServico.test_classificacao_lote_fronteiras) (dias='30', documentos='sim')
+FAIL: test_lote_contrato_estrutura_e_ordem (test_servico.RegressaoServico.test_lote_contrato_estrutura_e_ordem)
+FAIL: test_relatorio_sem_newline_final (test_servico.RegressaoServico.test_relatorio_sem_newline_final)
+Ran 13 tests in 0.003s
+FAILED (failures=3)
+EXIT_CODE=1
+
+== Mutante 2: PENDENTE so acima de 30 dias (viola RF-01 / precedencia documental)
+26:        if doc == "nao" and dias > 30:
+-- apenas os 8 testes ORIGINAIS do lote (antes do teste novo):
+Ran 8 tests in 0.000s
+OK
+EXIT_CODE=0
+-- testes do lote COM o teste novo (9 testes):
+FAIL: test_classificacao_lote_fronteiras (tests.test_servico.RegressaoServico.test_classificacao_lote_fronteiras) (dias='0', documentos='nao')
+FAIL: test_classificacao_lote_fronteiras (tests.test_servico.RegressaoServico.test_classificacao_lote_fronteiras) (dias='30', documentos='nao')
+Ran 9 tests in 0.002s
+FAILED (failures=2)
+EXIT_CODE=1

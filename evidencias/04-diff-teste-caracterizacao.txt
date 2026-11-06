@@ -1,0 +1,29 @@
+commit 1f0dc793e2fbbcf1502ae7c6be11ab07b58e2352
+Autor: brunofonteles <brunoodfonteles@gmail.com>
+Data:  Fri Nov 6 11:30:55 2026 -0400
+
+test: caracterizar classificacao do lote nas fronteiras
+
+Cobre no processar_csv as regras de CA-01..CA-03: 0/30/31 dias com e sem
+documentos. Passa no codigo original (13 testes OK). Antes, os testes do lote
+nao detectavam a perda da precedencia documental para dias <= 30.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+
+diff --git a/tests/test_servico.py b/tests/test_servico.py
+index 6eb2457..3c8123d 100644
+--- a/tests/test_servico.py
++++ b/tests/test_servico.py
+@@ -27,3 +27,11 @@ class RegressaoServico(unittest.TestCase):
+                 with self.assertRaisesRegex(ValueError,'^dias invalidos$'): processar_csv(HEADER+'A,'+valor+',sim\n')
+     def test_documentos_invalidos(self):
+         with self.assertRaisesRegex(ValueError,'^documentos invalidos$'): processar_csv(HEADER+'A,2,talvez\n')
++    def test_classificacao_lote_fronteiras(self):
++        # Caracteriza no lote as regras de CA-01..CA-03 (precedencia documental e limite 30).
++        casos = (('0','sim','NO_PRAZO'),('30','sim','NO_PRAZO'),('31','sim','ATRASADA'),
++                 ('0','nao','PENDENTE'),('30','nao','PENDENTE'),('31','nao','PENDENTE'))
++        for dias, doc, esperado in casos:
++            with self.subTest(dias=dias, documentos=doc):
++                item = processar_csv(HEADER+'A,'+dias+','+doc+'\n')['itens'][0]
++                self.assertEqual(item['situacao'], esperado)

@@ -1,0 +1,51 @@
+commit 08615089d6f9fa44c32c0228516fe6f1ac967e3f
+Autor: brunofonteles <brunoodfonteles@gmail.com>
+Data:  Fri Nov 6 11:32:57 2026 -0400
+
+refactor: servico delega classificacao a triagem.classificar
+
+Remove a copia da regra RF-01/RN-01 em processar_csv (if/elif) e passa a
+chamar src.triagem.classificar(dias, documentos). Nenhuma mudanca de regra,
+contrato, mensagens de erro, ordem ou formato de saida.
+
+Verificacao: 13 testes OK (Python 3.14.0); comparacao diferencial
+original x refatorado em 301 entradas (602 chamadas), 0 divergencias.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+
+diff --git a/src/servico.py b/src/servico.py
+index 1a04d87..063991e 100644
+--- a/src/servico.py
++++ b/src/servico.py
+@@ -1,8 +1,10 @@
+ import csv
+ from io import StringIO
+ 
++from .triagem import classificar
++
+ def processar_csv(texto):
+-    # Legado: parsing, validação, classificação e resumo no mesmo módulo.
++    # Legado: parsing, validação e resumo no mesmo módulo; a classificação é de src.triagem.
+     reader = csv.DictReader(StringIO(texto))
+     if reader.fieldnames != ["protocolo", "dias", "documentos"]:
+         raise ValueError("cabecalho invalido")
+@@ -22,15 +24,10 @@ def processar_csv(texto):
+         doc = linha["documentos"].strip().lower()
+         if doc not in ("sim", "nao"):
+             raise ValueError("documentos invalidos")
+-        # Regra duplicada de src.triagem.classificar.
+-        if doc == "nao":
+-            situacao = "PENDENTE"
+-        elif dias > 30:
+-            situacao = "ATRASADA"
+-        else:
+-            situacao = "NO_PRAZO"
++        documentos = doc == "sim"
++        situacao = classificar(dias, documentos)
+         itens.append({"protocolo": protocolo, "dias": dias,
+-                      "documentos": doc == "sim", "situacao": situacao})
++                      "documentos": documentos, "situacao": situacao})
+     contagem = {"PENDENTE": 0, "NO_PRAZO": 0, "ATRASADA": 0}
+     for item in itens:
+         contagem[item["situacao"]] += 1

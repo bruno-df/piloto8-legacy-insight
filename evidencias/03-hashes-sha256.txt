@@ -1,0 +1,45 @@
+# Hashes SHA-256
+
+## Antes (copia recebida, 2026-11-06T15:11:19Z)
+7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6 *src/__init__.py
+94bf91097c1be7a5f38cdb095bb14adce1099985247075d00c35327180e19e06 *src/servico.py
+446cac752e69ce9d2d0b7a6b64f98a3a2605db435c404508f5449d330e5bae0f *src/triagem.py
+66cb28fd06b60bc652c3d7feacf0f25dcdbe04354712c529e0ad9b4f10dd8946 *tests/test_servico.py
+a86fb61f287e961a060d45ba9ce02bff757512bc41fa5eb86b032463354597dd *tests/test_triagem.py
+48bede8f290f4836baf9f4c53b73c67910874ef062b3a72b722c632dea6b7393 *dados/solicitacoes.csv
+
+## Depois da refatoracao (2026-11-06T15:31:25Z)
+7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6 *src/__init__.py
+4824ade2e3d2b50b19c4a51c52f7d92af6a498cb82397b33753d7104e0aa2e4a *src/servico.py
+446cac752e69ce9d2d0b7a6b64f98a3a2605db435c404508f5449d330e5bae0f *src/triagem.py
+e085c0a91ec0988bc73c060274b74f2547e596900819b17fc81567db5e65dfa2 *tests/test_servico.py
+a86fb61f287e961a060d45ba9ce02bff757512bc41fa5eb86b032463354597dd *tests/test_triagem.py
+48bede8f290f4836baf9f4c53b73c67910874ef062b3a72b722c632dea6b7393 *dados/solicitacoes.csv
+
+## Diferencas antes x depois (somente estes arquivos mudaram)
+2c2
+< 94bf91097c1be7a5f38cdb095bb14adce1099985247075d00c35327180e19e06 *src/servico.py
+---
+> 4824ade2e3d2b50b19c4a51c52f7d92af6a498cb82397b33753d7104e0aa2e4a *src/servico.py
+4c4
+< 66cb28fd06b60bc652c3d7feacf0f25dcdbe04354712c529e0ad9b4f10dd8946 *tests/test_servico.py
+---
+> e085c0a91ec0988bc73c060274b74f2547e596900819b17fc81567db5e65dfa2 *tests/test_servico.py
+
+## Conferencia do commit de base 6a19380 contra a copia recebida
+core.autocrlf=true: o Git guarda LF e o disco usa CRLF.
+i/lf    w/crlf  attr/                 	dados/solicitacoes.csv
+i/lf    w/crlf  attr/                 	src/__init__.py
+i/lf    w/crlf  attr/                 	src/servico.py
+i/lf    w/crlf  attr/                 	src/triagem.py
+i/lf    w/crlf  attr/                 	tests/test_servico.py
+i/lf    w/crlf  attr/                 	tests/test_triagem.py
+
+Blobs do commit de base, reconvertidos para CRLF:
+7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6 *src/__init__.py
+94bf91097c1be7a5f38cdb095bb14adce1099985247075d00c35327180e19e06 *src/servico.py
+446cac752e69ce9d2d0b7a6b64f98a3a2605db435c404508f5449d330e5bae0f *src/triagem.py
+66cb28fd06b60bc652c3d7feacf0f25dcdbe04354712c529e0ad9b4f10dd8946 *tests/test_servico.py
+a86fb61f287e961a060d45ba9ce02bff757512bc41fa5eb86b032463354597dd *tests/test_triagem.py
+48bede8f290f4836baf9f4c53b73c67910874ef062b3a72b722c632dea6b7393 *dados/solicitacoes.csv
+RESULTADO: identicos aos hashes da copia recebida (6/6).

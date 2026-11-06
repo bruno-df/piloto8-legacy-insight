@@ -1,0 +1,16 @@
+# Comparacao diferencial: servico.py original x refatorado
+Script: evidencias/scripts/comparar_antes_depois.py (executado sem alteracoes)
+Original usado: copia byte a byte de src/servico.py feita antes de qualquer edicao (mesmo conteudo de git show 6a19380:src/servico.py; difere so no fim de linha CRLF)
+Comando: python -I -X utf8 comparar_antes_depois.py <raiz_do_projeto> <servico_original.py>
+Codigo de saida: EXIT_CODE=0
+stderr: 0 bytes
+
+----- stdout (integral) -----
+Python 3.14.0
+Casos de entrada: 301  |  comparações: 602
+Divergências: 0
+Amostra de erros iguais nas duas versões:
+  coluna faltando: ('erro', 'AttributeError', "'NoneType' object has no attribute 'strip'")
+  coluna extra: ('ok', {'itens': [{'protocolo': 'A', 'dias': 1, 'documentos': True, 'situacao': 'NO_PRAZO'}], 'resumo': {'PENDENTE': 0, 'NO_PRAZO': 1, 'ATRASADA': 0}, 'total': 1}, 'dict')
+  dias decimal: ('erro', 'ValueError', 'dias invalidos')
+  CRLF: ('ok', {'itens': [{'protocolo': 'A', 'dias': 30, 'documentos': True, 'situacao': 'NO_PRAZO'}, {'protocolo': 'B', 'dias': 31, 'documentos': False, 'situacao': 'PENDENTE'}], 'resumo': {'PENDENTE': 1, 'NO_PRAZO': 1, 'ATRASADA': 0}, 'total': 2}, 'dict')

@@ -1,0 +1,60 @@
+# Historico Git (antes do commit de documentacao)
+
+commit 08615089d6f9fa44c32c0228516fe6f1ac967e3f
+Autor: brunofonteles <brunoodfonteles@gmail.com>
+Data:  Fri Nov 6 11:32:57 2026 -0400
+
+    refactor: servico delega classificacao a triagem.classificar
+
+
+ src/servico.py | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
+commit 1f0dc793e2fbbcf1502ae7c6be11ab07b58e2352
+Autor: brunofonteles <brunoodfonteles@gmail.com>
+Data:  Fri Nov 6 11:30:55 2026 -0400
+
+    test: caracterizar classificacao do lote nas fronteiras
+
+
+ tests/test_servico.py | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+commit 6a19380304223eaaa80c92efd58ced6dfa1822c8
+Autor: brunofonteles <brunoodfonteles@gmail.com>
+Data:  Fri Nov 6 11:28:53 2026 -0400
+
+    chore: estado inicial do legacy_pds (copia limpa recebida)
+
+
+ .claude/agents/revisor-regressao.md | 11 ++++++++++
+ .claude/rules/evidencias.md         |  4 ++++
+ .claude/settings.json               | 14 +++++++++++++
+ .claude/skills/revisar-pds/SKILL.md | 10 +++++++++
+ .mcp.json                           | 12 +++++++++++
+ CLAUDE.md                           |  9 ++++++++
+ dados/solicitacoes.csv              |  9 ++++++++
+ docs/arquitetura.md                 | 10 +++++++++
+ docs/comparacao-offline.md          | 10 +++++++++
+ docs/conflito.md                    |  7 +++++++
+ docs/context-pack.md                |  9 ++++++++
+ docs/demanda.md                     | 14 +++++++++++++
+ docs/plano.md                       | 11 ++++++++++
+ src/__init__.py                     |  1 +
+ src/servico.py                      | 41 +++++++++++++++++++++++++++++++++++++
+ src/triagem.py                      |  7 +++++++
+ tests/test_servico.py               | 29 ++++++++++++++++++++++++++
+ tests/test_triagem.py               | 14 +++++++++++++
+ 18 files changed, 222 insertions(+)
+## git status
+On branch refatoracao/regra-unica
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	evidencias/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+## git remote -v
+origin	https://github.com/bruno-df/piloto8-legacy-insight.git (fetch)
+origin	https://github.com/bruno-df/piloto8-legacy-insight.git (push)
+
+## git ls-remote origin (consulta somente leitura, antes do push)
+(sem saida = repositorio remoto vazio; codigo de saida 0)

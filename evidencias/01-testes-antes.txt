@@ -1,0 +1,25 @@
+# Testes ANTES da alteracao (copia recebida, 12 testes, antes do git init)
+Comando: python -m unittest discover -s tests -v   (na raiz do projeto)
+Data (UTC): 2026-11-06T15:11:19Z
+Versao: Python 3.14.0
+Codigo de saida: EXIT_CODE=0
+stdout: 0 bytes (o unittest escreve o resultado no stderr)
+
+----- stderr (integral) -----
+test_cabecalho_publico (test_servico.RegressaoServico.test_cabecalho_publico) ... ok
+test_dias_invalidos (test_servico.RegressaoServico.test_dias_invalidos) ... ok
+test_documentos_invalidos (test_servico.RegressaoServico.test_documentos_invalidos) ... ok
+test_lote_contrato_estrutura_e_ordem (test_servico.RegressaoServico.test_lote_contrato_estrutura_e_ordem) ... ok
+test_normalizacao_documentos (test_servico.RegressaoServico.test_normalizacao_documentos) ... ok
+test_protocolo_duplicado (test_servico.RegressaoServico.test_protocolo_duplicado) ... ok
+test_relatorio_sem_newline_final (test_servico.RegressaoServico.test_relatorio_sem_newline_final) ... ok
+test_vazio_valido (test_servico.RegressaoServico.test_vazio_valido) ... ok
+test_CA01_precedencia_documental (test_triagem.Caracterizacao.test_CA01_precedencia_documental) ... ok
+test_CA02_limite_30 (test_triagem.Caracterizacao.test_CA02_limite_30) ... ok
+test_CA03_apos_limite (test_triagem.Caracterizacao.test_CA03_apos_limite) ... ok
+test_CA04_antes_limite (test_triagem.Caracterizacao.test_CA04_antes_limite) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+OK
