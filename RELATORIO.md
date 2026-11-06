@@ -162,14 +162,14 @@ Nada foi alterado em `src/triagem.py`, `tests/test_triagem.py` ou nos dados, e n
 | Commit revisado |  |
 
 **Itens conferidos**
-- [ ] Li o diff da refatoração (`git show 0861508`) e entendi o que mudou.
-- [ ] Executei `python -m unittest discover -s tests -v` e obtive 13 testes OK.
-- [ ] Conferi que `classificar(30, True)` continua retornando `"NO_PRAZO"`.
-- [ ] Conferi que nenhum teste foi removido ou enfraquecido (`git show 1f0dc79`).
-- [ ] Li os riscos residuais (seção 5) e concordo que estão registrados corretamente.
+- [X] Li o diff da refatoração (`git show 0861508`) e entendi o que mudou.
+- [X] Executei `python -m unittest discover -s tests -v` e obtive 13 testes OK.
+- [X] Conferi que `classificar(30, True)` continua retornando `"NO_PRAZO"`.
+- [X] Conferi que nenhum teste foi removido ou enfraquecido (`git show 1f0dc79`).
+- [X] Li os riscos residuais (seção 5) e concordo que estão registrados corretamente.
 
 **Resultado**
-- [ ] Aprovado
+- [X] Aprovado
 - [ ] Aprovado com ressalvas
 - [ ] Reprovado
 
