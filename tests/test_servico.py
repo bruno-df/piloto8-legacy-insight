@@ -27,3 +27,11 @@ class RegressaoServico(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,'^dias invalidos$'): processar_csv(HEADER+'A,'+valor+',sim\n')
     def test_documentos_invalidos(self):
         with self.assertRaisesRegex(ValueError,'^documentos invalidos$'): processar_csv(HEADER+'A,2,talvez\n')
+    def test_classificacao_lote_fronteiras(self):
+        # Caracteriza no lote as regras de CA-01..CA-03 (precedencia documental e limite 30).
+        casos = (('0','sim','NO_PRAZO'),('30','sim','NO_PRAZO'),('31','sim','ATRASADA'),
+                 ('0','nao','PENDENTE'),('30','nao','PENDENTE'),('31','nao','PENDENTE'))
+        for dias, doc, esperado in casos:
+            with self.subTest(dias=dias, documentos=doc):
+                item = processar_csv(HEADER+'A,'+dias+','+doc+'\n')['itens'][0]
+                self.assertEqual(item['situacao'], esperado)
