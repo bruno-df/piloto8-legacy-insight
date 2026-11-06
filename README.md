@@ -46,4 +46,4 @@ git show 0861508
 | `10-testes-final.txt` | Testes na versão entregue |
 | `scripts/` | Scripts usados na comparação e na mutação |
 
-A revisão humana e o aceite funcional estão **PENDENTES**.
+A revisão humana e o aceite funcional estão **PENDENTES**. Para registrá-los, preencha a seção 8 do [RELATORIO.md](RELATORIO.md#8-registro-de-revisão-humana-e-aceite-funcional).

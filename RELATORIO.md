@@ -138,10 +138,67 @@ Nada foi alterado em `src/triagem.py`, `tests/test_triagem.py` ou nos dados, e n
 
 **Situação formal.** Seguindo `.claude/rules/evidencias.md`, que distingue conclusão técnica, aceite funcional e recebimento contratual:
 - **Conclusão técnica:** refatoração implementada e verificada por testes, comparação e revisão automatizada.
-- **Revisão humana:** **PENDENTE**.
-- **Aceite funcional:** **PENDENTE**.
+- **Revisão humana:** **PENDENTE** até a seção 8.1 ser preenchida.
+- **Aceite funcional:** **PENDENTE** até a seção 8.2 ser preenchida.
 - **Recebimento contratual:** não se aplica a este exercício. Nada foi aprovado ou homologado.
 
 **Ocorrências registradas:**
 - O primeiro commit de base incluiu `.claude/settings.local.json`, uma configuração local do app sem segredos. O arquivo foi retirado com `--amend` antes de qualquer publicação e ficou listado em `.git/info/exclude`.
 - A primeira execução do script de mutação usou um padrão de busca errado (21 testes em vez de 13). O script foi corrigido e executado de novo. A saída válida está em `evidencias/07`.
+
+## 8. Registro de revisão humana e aceite funcional
+
+> **Esta seção é preenchida somente por uma pessoa.** O assistente (Claude) criou os campos, mas não preencheu nem marcou nenhum item. Enquanto os campos estiverem em branco, a revisão humana e o aceite funcional continuam **PENDENTES**.
+>
+> Como preencher: no GitHub, abra este arquivo e clique no lápis (Edit). Ou edite localmente e faça commit. Para marcar um item, troque `[ ]` por `[x]`. Marque só o que você de fato verificou.
+
+### 8.1 Revisão humana (técnica)
+
+| Campo | Preenchimento |
+|---|---|
+| Revisor(a) |  |
+| Papel (participante, dupla, monitor ou professor) |  |
+| Data |  |
+| Commit revisado |  |
+
+**Itens conferidos**
+- [ ] Li o diff da refatoração (`git show 0861508`) e entendi o que mudou.
+- [ ] Executei `python -m unittest discover -s tests -v` e obtive 13 testes OK.
+- [ ] Conferi que `classificar(30, True)` continua retornando `"NO_PRAZO"`.
+- [ ] Conferi que nenhum teste foi removido ou enfraquecido (`git show 1f0dc79`).
+- [ ] Li os riscos residuais (seção 5) e concordo que estão registrados corretamente.
+
+**Resultado**
+- [ ] Aprovado
+- [ ] Aprovado com ressalvas
+- [ ] Reprovado
+
+**Ressalvas / observações:**
+
+&nbsp;
+
+### 8.2 Aceite funcional
+
+Responsável: o **gestor do negócio**, que neste exercício é o participante designado em sala (`docs/demanda.md:2`).
+
+| Campo | Preenchimento |
+|---|---|
+| Nome |  |
+| Data |  |
+
+**Critérios conferidos**
+- [ ] RF-01 preservado: sem documentos, o resultado é PENDENTE em qualquer idade.
+- [ ] RN-01 preservado: com documentos, 30 dias é NO_PRAZO e 31 dias é ATRASADA.
+- [ ] As saídas de `processar_csv` e `relatorio_texto` para `dados/solicitacoes.csv` estão iguais às de antes da mudança.
+- [ ] Ciente de que o RF-02 (aviso entre 25 e 30 dias) **não** faz parte desta entrega.
+
+**Decisão**
+- [ ] Aceito
+- [ ] Aceito com ressalvas
+- [ ] Não aceito
+
+**Observações:**
+
+&nbsp;
+
+> **Recebimento contratual:** não se aplica a este exercício didático.
