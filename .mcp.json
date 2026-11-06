@@ -1,0 +1,12 @@
+{
+    "mcpServers":  {
+                       "demandas":  {
+                                        "args":  [
+                                                     "C:\\Users\\IFMT\\Documents\\ClaudeCode\\Unidade_IX_Engenharia_Software_IA_SEMA\\06-laboratorio\\mcp\\server.py",
+                                                     "--db",
+                                                     "C:\\Users\\IFMT\\Documents\\ClaudeCode\\Unidade_IX_Engenharia_Software_IA_SEMA\\06-laboratorio\\trabalho-20261106-090225-134\\mcp-estado.sqlite"
+                                                 ],
+                                        "command":  "C:\\Users\\IFMT\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+                                    }
+                   }
+}

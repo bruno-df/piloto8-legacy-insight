@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ],
+    "ask": [
+      "Bash",
+      "Edit",
+      "mcp__demandas__aplicar_proposta"
+    ]
+  }
+}
